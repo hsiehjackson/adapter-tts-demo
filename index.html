@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+		<title>Adapter-TTS Demo</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div id="wrapper">
+		<div id="main">
+			<div class="inner">
+				<h1><font color="76b900">Adapter-Based</font> Extension of Multi-Speaker Text-To-Speech Model For New Speakers </h1>
+				<p id="authors"><i><a href="https://github.com/hsiehjackson">Cheng-Ping Hsieh</a>, <a href="https://github.com/subhankar-ghosh">Subhankar Ghosh</a>, <a href="https://developer.nvidia.com/blog/author/bginsburg/">Boris Ginsburg</a></i></p>
+
+                <p>
+				Fine-tuning is a popular method for adapting text-to-speech (TTS) models to new speakers. However this approach has some challenges. Usually fine-tuning requires several hours
+				of high quality speech per speaker. There is also that finetuning will negatively affect the quality of speech synthesis
+				for previously learnt speakers. In this paper we propose
+				an alternative approach for TTS adaptation based on using parameter-efficient adapter modules. In the proposed
+				approach, a few small adapter modules are added to the
+				original network. The original weights are frozen, and only
+				the adapters are fine-tuned on speech for new speaker. The
+				parameter-efficient fine-tuning approach will produce a new
+				model with high level of parameter sharing with original
+				model. Our experiments on LibriTTS, HiFi-TTS and VCTK
+				datasets validate the effectiveness of adapter-based method
+				through objective and subjective metrics.
+                </p>
+
+				<h2><a href="https://www.openslr.org/60/">LibriTTS</a></h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Reference</th>
+								<th>Adapter (proposed)</th>
+								<th>Full fine-tuning</th>
+								<th>Ground truth</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Male</td>
+								<td><audio controls=""><source src="samples/libritts/libritts-6829-Ref-0.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/libritts/libritts-6829-adapter-15m-12.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/libritts/libritts-6829-allparams-15m-12.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/libritts/libritts-6829-GT-12.wav"/></audio></td>
+							</tr>
+							<tr>
+								<td>Female</td>
+								<td><audio controls=""><source src="samples/libritts/libritts-7127-Ref-0.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/libritts/libritts-7127-adapter-15m-12.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/libritts/libritts-7127-allparams-15m-12.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/libritts/libritts-7127-GT-12.wav"/></audio></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+				<h2><a href="https://www.openslr.org/109/">HiFi-TTS</a></h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Reference</th>
+								<th>Adapter (proposed)</th>
+								<th>Full fine-tuning</th>
+								<th>Ground truth</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Male</td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-6671-Ref-0.wav"></audio></td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-6671-adapter-15m-13.mp3"></audio></td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-6671-allparams-15m-13.mp3"></audio></td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-6671-GT-13.mp3"></audio></td>
+							</tr>
+							<tr>
+								<td>Female</td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-11697-Ref-0.wav"></audio></td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-11697-adapter-15m-17.mp3"></audio></td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-11697-allparams-15m-17.mp3"></audio></td>
+								<td><audio controls=""><source src="samples/hifitts/hifitts-11697-GT-17.mp3"></audio></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+				<h2><a href="https://datashare.ed.ac.uk/handle/10283/3443">VCTK</a></h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Reference</th>
+								<th>Adapter (proposed)</th>
+								<th>Full fine-tuning</th>
+								<th>Ground truth</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Male</td>
+								<td><audio controls=""><source src="samples/vctk/vctk-252-Ref-0.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/vctk/vctk-252-adapter-15m-17.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/vctk/vctk-252-allparams-15m-17.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/vctk/vctk-252-GT-17.wav"/></audio></td>
+							</tr>
+							<tr>
+								<td>Female</td>
+								<td><audio controls=""><source src="samples/vctk/vctk-329-Ref-0.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/vctk/vctk-329-adapter-15m-15.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/vctk/vctk-329-allparams-15m-15.wav"/></audio></td>
+								<td><audio controls=""><source src="samples/vctk/vctk-329-GT-15.wav"/></audio></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
